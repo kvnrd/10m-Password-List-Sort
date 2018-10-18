@@ -85,16 +85,18 @@ def Dict_insert_node(head, dict):
 
             dict[head.password] = 1
 
+        head = head.next
+
 
 
 
 
 #fills dictionary
-def Dict_insert(password, dict):
+def dict_insert(password, dict):
 
     if password in dict: #if password is in the dictionary
 
-        dict[password] += 1 #add one to the value of the index
+        dict[password] = dict[password] + 1 #add one to the value of the index
 
     else:
 
@@ -280,11 +282,17 @@ def main():
 
     #traversing the file
     for line in password_file:
-        var = line.rpartition("\t")
+        var = line.rpartition('\t')
         password_List.add(var[2]) #getting the value at index 2 since partition returns 3 values AND inserting it into the password list
-        Dict_insert(var[2], dictionary) #grabbing the value to
+        dict_insert(var[2], dictionary)
 
     password_file.close()
+
+    
+    for items in dictionary:
+        print(items, dictionary[items])
+
+
 
     bubbleSort(password_List)
     print("---------------------- LINKED LIST BUBBLE SORT ---------------------------")
@@ -296,6 +304,7 @@ def main():
     #merge_sort(dictionary_linked_list.head)
     #Dict_insert_node(dictionary_linked_list.head, dictionary)
     print_20(password_List.head,  dictionary)
+
 
 
 
