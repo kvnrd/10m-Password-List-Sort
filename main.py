@@ -189,32 +189,45 @@ def merge_sort(head):
     merge_sort(right)
     merge_lists(left, right)
 
-
+#returns the left and the right
 def split(head):
+    previous = None
+
     if head == None:
 
         return head
     f1 = head.next
     f2 = head
 
-    while f1 != None:
+
+    while f1 !=  None:
         f1 = f1.next
         if f1 != None:
             f2 = f2.next
             f1 = f1.next
 
-    return head, f2
+    right = f2.next
+    f2.next = None
+
+
+    return head, right
 
 def merge_lists(left, right):
 
 
     if left == None and right == None:
+
         return None
+
     if left == None:
+
         return right
+
     if right == None:
+
         return left
-    if left.counter > right.counter:
+
+    if left.count > right.count:
         result = left
         left = left.next
     else:
@@ -223,7 +236,8 @@ def merge_lists(left, right):
     last = result
 
     while left != None and right != None:
-        if left.counter > right.counter:
+
+        if left.count > right.count:
             last.next = left
             left = left.next
         else:
