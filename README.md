@@ -1,1 +1,3 @@
 # Lab2
+
+For this lab, I was given a file of 10 million passwords. The problem is to create a python program that would read the 10 million passwords and create a linked list with each node containing two values, one being the password (string) and the other to hold the number of times that password was found in the file (int). After creating the linked list, we had to create an algorithm that would sort the list from most used to less used passwords using the bubble sort method. The second problem was to create a dictionary of the password file. After populating the dictionary, we have to sort it using the merge sort method. 
